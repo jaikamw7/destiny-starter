@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Starter Plate — Easy Meal Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mist:#EEF3F1;
+    --card:#FFFFFF;
+    --ink:#14342B;
+    --pine:#2F7D6D;
+    --amber:#F0A04B;
+    --berry:#B5446E;
+    --soft:#5E7A72;
+    --line:#D8E2DE;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none!important;animation:none!important;} }
+  body{
+    font-family:'Karla',sans-serif;
+    background:var(--mist);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- HERO ---------- */
+  header{padding:56px 0 36px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;color:var(--pine);margin-bottom:14px;
+  }
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800;font-size:clamp(38px,7vw,62px);
+    line-height:1.02;letter-spacing:-.01em;
+  }
+  h1 .accent{color:var(--pine);}
+  .hero-sub{margin-top:16px;max-width:580px;font-size:17px;color:var(--soft);}
+  .hero-facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+  .fact{
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:8px 16px;font-size:14px;font-weight:700;
+  }
+  .fact span{color:var(--pine);}
+
+  h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(24px,4vw,32px);margin-bottom:6px;letter-spacing:-.01em;
+  }
+  .section{padding:34px 0;}
+  .section-sub{color:var(--soft);max-width:620px;margin-bottom:24px;}
+
+  /* ---------- DAY BUDGET (signature) ---------- */
+  .budget{
+    background:var(--ink);color:#EAF4F0;border-radius:var(--radius);
+    padding:30px 28px 26px;
+  }
+  .budget h2{color:#fff;}
+  .budget p{color:#B9D0C8;font-size:15px;max-width:540px;}
+  .budget-bar{
+    display:flex;height:64px;border-radius:14px;overflow:hidden;margin-top:24px;
+  }
+  .seg{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:700;font-size:13px;color:#14342B;text-align:center;line-height:1.25;
+  }
+  .seg small{font-weight:700;font-size:11px;opacity:.75;}
+  .seg.b{flex:0 0 22%;background:#8FD0BE;}
+  .seg.l{flex:0 0 28%;background:#F0A04B;}
+  .seg.d{flex:0 0 30%;background:#E08AAB;}
+  .seg.s{flex:0 0 20%;background:#C9DA8F;}
+  .budget-note{
+    margin-top:18px;font-size:13px;color:#8FB3A7;border-top:1px solid #2A4A40;padding-top:14px;
+  }
+  .budget-note strong{color:#EAF4F0;}
+
+  /* ---------- MEAL CARDS ---------- */
+  .meal{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    margin-bottom:22px;overflow:hidden;
+  }
+  .meal-head{
+    padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    border-bottom:1px solid var(--line);flex-wrap:wrap;
+  }
+  .meal-head h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;}
+  .meal-tag{
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;color:#fff;
+  }
+  .m1 .meal-tag{background:var(--pine);} .m1 .meal-head{border-top:5px solid var(--pine);}
+  .m2 .meal-tag{background:var(--amber);color:#3A2A12;} .m2 .meal-head{border-top:5px solid var(--amber);}
+  .m3 .meal-tag{background:var(--berry);} .m3 .meal-head{border-top:5px solid var(--berry);}
+  .m4 .meal-tag{background:#7A9A3F;} .m4 .meal-head{border-top:5px solid #9CB85C;}
+
+  .option{padding:16px 24px;border-bottom:1px solid var(--line);}
+  .option:last-child{border-bottom:none;}
+  .opt-label{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;border-radius:999px;padding:4px 10px;margin-bottom:8px;
+  }
+  .opt-main{background:#DFF2E9;color:#1E5B4C;}
+  .opt-swap{background:var(--mist);color:var(--soft);}
+  .opt-name{font-weight:700;font-size:16.5px;}
+  .opt-detail{font-size:14px;color:var(--soft);margin-top:3px;}
+  .opt-macros{
+    margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;
+  }
+  .macro{
+    font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;
+    background:var(--mist);color:var(--ink);
+  }
+  .macro.p{background:#FDEFD9;color:#8A5A1E;}
+
+  /* ---------- HABITS CHECKLIST ---------- */
+  .habits{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;
+  }
+  .habits-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .habits-head h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;}
+  .progress-pill{
+    font-size:13px;font-weight:700;color:var(--soft);
+    background:var(--mist);border-radius:999px;padding:6px 14px;
+  }
+  .reset-btn{
+    font-family:'Karla',sans-serif;font-size:12px;font-weight:700;
+    color:var(--soft);background:none;border:1px solid var(--line);
+    border-radius:999px;padding:6px 12px;cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  .reset-btn:hover{background:var(--mist);color:var(--ink);}
+  .reset-btn:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+  .ex{display:flex;align-items:flex-start;gap:12px;padding:9px 0;}
+  .ex label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;width:100%;}
+  .ex input{
+    appearance:none;-webkit-appearance:none;flex-shrink:0;
+    width:22px;height:22px;border:2px solid var(--line);border-radius:7px;
+    background:#fff;cursor:pointer;margin-top:2px;position:relative;
+    transition:background .15s,border-color .15s;
+  }
+  .ex input:checked{background:var(--pine);border-color:var(--pine);}
+  .ex input:checked::after{
+    content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:14px;font-weight:700;
+  }
+  .ex input:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+  .ex-name{font-weight:700;}
+  .ex-detail{font-size:14px;color:var(--soft);}
+  .ex input:checked ~ .ex-text .ex-name{text-decoration:line-through;color:var(--soft);}
+
+  /* ---------- TIPS ---------- */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;}
+  .tip h4{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;margin-bottom:6px;}
+  .tip p{font-size:14px;color:var(--soft);}
+
+  footer{
+    padding:30px 0 50px;font-size:13px;color:var(--soft);
+    border-top:1px solid var(--line);margin-top:26px;
+  }
+  @media(max-width:560px){
+    .meal-head{padding:16px 18px;}
+    .option{padding:14px 18px;}
+    .seg{font-size:11px;}
+    .seg small{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Companion to The Starter Climb · Food Edition</div>
+    <h1>The Starter <span class="accent">Plate</span></h1>
+    <p class="hero-sub">Simple, filling food that keeps you in a gentle calorie deficit while fueling your workouts. Every meal has swaps, nothing is banned, and nothing requires fancy cooking. This is the half of the plan that does most of the work.</p>
+    <div class="hero-facts">
+      <div class="fact"><span>~1,800</span> calories / day</div>
+      <div class="fact"><span>130g+</span> protein / day</div>
+      <div class="fact"><span>0</span> banned foods</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="budget">
+      <h2>Your daily food budget</h2>
+      <p>About 1,800 calories a day puts you in a comfortable deficit — roughly 0.5–1 lb a week on desk-only days and more on 10k-step days, without ever feeling starved or low-energy for the gym. Here's how it splits across the day:</p>
+      <div class="budget-bar" role="img" aria-label="Daily calorie budget: breakfast about 400, lunch about 500, dinner about 550, snacks about 350">
+        <div class="seg b">Breakfast<small>~400 cal</small></div>
+        <div class="seg l">Lunch<small>~500 cal</small></div>
+        <div class="seg d">Dinner<small>~550 cal</small></div>
+        <div class="seg s">Snacks<small>~350 cal</small></div>
+      </div>
+      <div class="budget-note"><strong>Why not eat way less?</strong> Crash dieting tanks your energy, makes workouts miserable, and almost always rebounds. Eating enough — especially protein — keeps your metabolism humming and protects the muscle you're building. Slow is what sticks.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The meals</h2>
+    <p class="section-sub">Each slot has a main pick plus swaps at roughly the same calories and protein. Mix and match freely — eat the same breakfast all week or rotate, whatever's easiest. Portions are starting points, not laws.</p>
+
+    <!-- BREAKFAST -->
+    <div class="meal m1">
+      <div class="meal-head">
+        <h3>Breakfast</h3>
+        <span class="meal-tag">~400 cal</span>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-main">Main pick</span>
+        <div class="opt-name">Greek yogurt power bowl</div>
+        <div class="opt-detail">1 cup plain nonfat Greek yogurt + 1 cup berries + ¼ cup granola + drizzle of honey. Five minutes, no cooking.</div>
+        <div class="opt-macros"><span class="macro">~390 cal</span><span class="macro p">~28g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 1</span>
+        <div class="opt-name">Eggs &amp; toast</div>
+        <div class="opt-detail">3 scrambled eggs + 1 slice whole-wheat toast with a little butter + a piece of fruit.</div>
+        <div class="opt-macros"><span class="macro">~400 cal</span><span class="macro p">~22g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 2</span>
+        <div class="opt-name">Grab-and-go protein smoothie</div>
+        <div class="opt-detail">1 scoop protein powder + 1 banana + 1 tbsp peanut butter + 1 cup milk, blended. Perfect for rushed mornings.</div>
+        <div class="opt-macros"><span class="macro">~410 cal</span><span class="macro p">~35g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 3</span>
+        <div class="opt-name">Overnight oats</div>
+        <div class="opt-detail">½ cup oats + ½ cup milk + ½ cup Greek yogurt + cinnamon, made the night before. Add berries in the morning.</div>
+        <div class="opt-macros"><span class="macro">~400 cal</span><span class="macro p">~24g protein</span></div>
+      </div>
+    </div>
+
+    <!-- LUNCH -->
+    <div class="meal m2">
+      <div class="meal-head">
+        <h3>Lunch</h3>
+        <span class="meal-tag">~500 cal</span>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-main">Main pick</span>
+        <div class="opt-name">Chicken wrap + fruit</div>
+        <div class="opt-detail">Large tortilla + 4–5 oz grilled chicken (rotisserie works great) + lettuce, tomato, shredded cheese + 1 tbsp ranch or chipotle mayo. Apple on the side.</div>
+        <div class="opt-macros"><span class="macro">~510 cal</span><span class="macro p">~38g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 1</span>
+        <div class="opt-name">Turkey sandwich + side salad</div>
+        <div class="opt-detail">2 slices whole-wheat bread + 4 oz deli turkey + cheese slice + mustard + bagged salad with light dressing.</div>
+        <div class="opt-macros"><span class="macro">~480 cal</span><span class="macro p">~32g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 2</span>
+        <div class="opt-name">Burrito bowl (homemade or Chipotle-style)</div>
+        <div class="opt-detail">⅔ cup rice + chicken + black beans + salsa + lettuce + a little cheese. Skip or go light on sour cream; guac is fine.</div>
+        <div class="opt-macros"><span class="macro">~530 cal</span><span class="macro p">~40g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 3</span>
+        <div class="opt-name">Tuna or chicken salad &amp; crackers</div>
+        <div class="opt-detail">1 pouch tuna or canned chicken mixed with 1 tbsp mayo + whole-grain crackers + baby carrots + string cheese.</div>
+        <div class="opt-macros"><span class="macro">~470 cal</span><span class="macro p">~35g protein</span></div>
+      </div>
+    </div>
+
+    <!-- DINNER -->
+    <div class="meal m3">
+      <div class="meal-head">
+        <h3>Dinner</h3>
+        <span class="meal-tag">~550 cal</span>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-main">Main pick</span>
+        <div class="opt-name">Sheet-pan chicken &amp; potatoes</div>
+        <div class="opt-detail">5–6 oz chicken breast or thighs + diced potatoes + broccoli, tossed in 1 tbsp olive oil and seasoning, roasted at 400°F for ~25 min. One pan, zero skill required.</div>
+        <div class="opt-macros"><span class="macro">~550 cal</span><span class="macro p">~42g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 1</span>
+        <div class="opt-name">Ground turkey taco bowls</div>
+        <div class="opt-detail">5 oz 93% lean ground turkey with taco seasoning + ⅔ cup rice + salsa, lettuce, a little cheese and avocado.</div>
+        <div class="opt-macros"><span class="macro">~560 cal</span><span class="macro p">~40g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 2</span>
+        <div class="opt-name">Salmon, rice &amp; green beans</div>
+        <div class="opt-detail">5 oz salmon (frozen fillets are cheap and great) + ⅔ cup rice + green beans. Air fryer or oven, 12–15 min.</div>
+        <div class="opt-macros"><span class="macro">~540 cal</span><span class="macro p">~36g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Swap 3</span>
+        <div class="opt-name">Pasta with meat sauce + salad</div>
+        <div class="opt-detail">1.5 cups cooked pasta + sauce made with 4 oz lean ground beef or turkey + side salad. Yes, pasta is allowed.</div>
+        <div class="opt-macros"><span class="macro">~570 cal</span><span class="macro p">~34g protein</span></div>
+      </div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="meal m4">
+      <div class="meal-head">
+        <h3>Snacks · pick 2 a day</h3>
+        <span class="meal-tag">~150–200 cal each</span>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-main">Protein-y picks (have at least one of these daily)</span>
+        <div class="opt-name">String cheese + apple · Cottage cheese + pineapple · Protein shake · 2 hard-boiled eggs · Beef jerky stick</div>
+        <div class="opt-detail">These keep you full and push you toward the 130g protein goal. The post-workout protein shake is the easiest win.</div>
+        <div class="opt-macros"><span class="macro">~150–200 cal</span><span class="macro p">10–25g protein</span></div>
+      </div>
+      <div class="option">
+        <span class="opt-label opt-swap">Crunchy / sweet picks</span>
+        <div class="opt-name">Popcorn (smart-pop bag) · Baby carrots + hummus · Frozen grapes · Dark chocolate squares (2–3) · Greek yogurt with honey</div>
+        <div class="opt-detail">For when you want a treat, not fuel. Built into the budget on purpose — a planned treat beats an unplanned binge every time.</div>
+        <div class="opt-macros"><span class="macro">~100–180 cal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="habits">
+      <div class="habits-head">
+        <h3>Today's food wins</h3>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <span class="progress-pill" data-progress="h1">0 / 5 done</span>
+          <button class="reset-btn" data-reset="h1" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="ex"><label><input type="checkbox" data-day="h1"><span class="ex-text"><span class="ex-name">Protein at breakfast</span><br><span class="ex-detail">Any option above counts</span></span></label></div>
+      <div class="ex"><label><input type="checkbox" data-day="h1"><span class="ex-text"><span class="ex-name">Protein at lunch</span><br><span class="ex-detail">Any option above counts</span></span></label></div>
+      <div class="ex"><label><input type="checkbox" data-day="h1"><span class="ex-text"><span class="ex-name">Protein at dinner</span><br><span class="ex-detail">Any option above counts</span></span></label></div>
+      <div class="ex"><label><input type="checkbox" data-day="h1"><span class="ex-text"><span class="ex-name">Mostly water today</span><br><span class="ex-detail">Aim for ~8 cups; zero-cal drinks count, sugary drinks are the sneakiest calories there are</span></span></label></div>
+      <div class="ex"><label><input type="checkbox" data-day="h1"><span class="ex-text"><span class="ex-name">One fruit or veggie I didn't have to eat</span><br><span class="ex-detail">A bonus apple, carrots, a handful of berries — fiber keeps you full</span></span></label></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Things that make this work</h2>
+    <div class="tips">
+      <div class="tip"><h4>🥩 Protein is the cheat code</h4><p>Aim for 130g a day minimum, 150g on a great day. That's matched to your lean mass — the muscle protein actually feeds — which is what the research scales protein to. It keeps you full, protects the muscle your workouts build, and burns more calories to digest than carbs or fat do.</p></div>
+      <div class="tip"><h4>👟 Your 10k steps are a superpower</h4><p>With a desk job, your step days burn ~300–400 more calories than office-chair days — that's the difference between a slow week and a great one. Steps are the easiest lever you have; protect that habit.</p></div>
+      <div class="tip"><h4>⚖️ One bad day changes nothing</h4><p>Weight loss is decided by your weekly average, not any single day. Overdid it at a birthday dinner? Just go back to the plan at the next meal — no punishing, no "starting over Monday."</p></div>
+      <div class="tip"><h4>🍟 Eating out survival</h4><p>Pick a protein-forward main (grilled anything, burrito bowl, burger without fries), drink water, and don't stress the rest. One restaurant meal fits in the budget just fine.</p></div>
+      <div class="tip"><h4>📉 What progress looks like</h4><p>Expect roughly 0.5–1.5 lbs a week on average depending on your step count, but the scale zigzags daily from water and hormones. Weigh weekly at most, same day and time, and judge the monthly trend.</p></div>
+      <div class="tip"><h4>🛒 Keep it boring on purpose</h4><p>Repeating the same 2–3 breakfasts and lunches every week is a feature, not a failure. Fewer decisions = easier consistency. Save variety for dinner.</p></div>
+      <div class="tip"><h4>😋 Hungry between meals?</h4><p>First, water — thirst loves disguising itself as hunger. Still hungry 15 minutes later? Have a protein snack. Real hunger is fine to feed; this plan has room.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    Made with love by your best friend 💚 · Pairs with The Starter Climb workout plan — food does most of the losing, the gym does the shaping. <br><br>
+    Calorie target is an estimate based on your stats, desk job, and step habit — adjust up if you're constantly hungry or dragging in workouts, and if the monthly trend stalls for 3–4 weeks, drop to ~1,650–1,700. This is a general plan, not medical or dietetic advice; check with a doctor or registered dietitian if you have any health conditions.
+  </footer>
+</div>
+
+<script>
+  // Daily habit checklist with saved progress (persists between visits)
+  const STORE_KEY = 'starterPlateChecks';
+  const days = {};
+
+  function loadState(){
+    try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+  function saveState(state){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
+  }
+
+  const saved = loadState();
+
+  document.querySelectorAll('input[type="checkbox"][data-day]').forEach(cb => {
+    const d = cb.dataset.day;
+    days[d] = days[d] || { total: 0 };
+    const idx = days[d].total++;
+    const key = d + '-' + idx;
+    cb.dataset.key = key;
+    if (saved[key]) cb.checked = true;
+    cb.addEventListener('change', () => {
+      const state = loadState();
+      if (cb.checked) state[key] = true; else delete state[key];
+      saveState(state);
+      updateDay(d);
+    });
+  });
+
+  function updateDay(d){
+    const done = document.querySelectorAll('input[data-day="'+d+'"]:checked').length;
+    const pill = document.querySelector('[data-progress="'+d+'"]');
+    pill.textContent = done + ' / ' + days[d].total + ' done';
+    if (done === days[d].total){ pill.textContent = '🎉 All done!'; pill.style.background = '#DFF2E9'; pill.style.color = '#14342B'; }
+    else { pill.style.background = ''; pill.style.color = ''; }
+  }
+
+  document.querySelectorAll('[data-reset]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const d = btn.dataset.reset;
+      const state = loadState();
+      document.querySelectorAll('input[data-day="'+d+'"]').forEach(cb => {
+        cb.checked = false;
+        delete state[cb.dataset.key];
+      });
+      saveState(state);
+      updateDay(d);
+    });
+  });
+
+  Object.keys(days).forEach(updateDay);
+</script>
+</body>
+</html>
