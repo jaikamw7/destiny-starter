@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Starter Climb — 4-Week Back & Glutes Plan</title>
+<title>The Starter Climb — 5-Day Beginner Gym Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,6 +15,8 @@
     --pine:#2F7D6D;
     --amber:#F0A04B;
     --berry:#B5446E;
+    --indigo:#4E5FA8;
+    --olive:#7A9A3F;
     --soft:#5E7A72;
     --line:#D8E2DE;
     --radius:18px;
@@ -42,7 +44,6 @@
     line-height:1.02;letter-spacing:-.01em;
   }
   h1 .accent{color:var(--pine);}
-  .hero-sub{margin-top:16px;max-width:560px;font-size:17px;color:var(--soft);}
   .hero-facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
   .fact{
     background:var(--card);border:1px solid var(--line);border-radius:999px;
@@ -56,7 +57,7 @@
     font-size:clamp(24px,4vw,32px);margin-bottom:6px;letter-spacing:-.01em;
   }
   .section{padding:34px 0;}
-  .section-sub{color:var(--soft);max-width:620px;margin-bottom:24px;}
+  .section-sub{color:var(--soft);max-width:640px;margin-bottom:24px;}
 
   /* ---------- THE CLIMB (signature) ---------- */
   .climb{
@@ -86,6 +87,30 @@
   }
   .climb-note strong{color:#EAF4F0;}
 
+  /* ---------- WEEK STRIP ---------- */
+  .week-strip{
+    display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:4px;
+  }
+  .wday{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:12px 6px;text-align:center;
+  }
+  .wday .dow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);}
+  .wday .what{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;
+    margin-top:4px;line-height:1.2;
+  }
+  .wday.c1 .what{color:var(--berry);}
+  .wday.c2 .what{color:var(--pine);}
+  .wday.c3 .what{color:#C27C1F;}
+  .wday.c4 .what{color:var(--indigo);}
+  .wday.c5 .what{color:#5E7A2E;}
+  .wday.rest{background:transparent;border-style:dashed;}
+  .wday.rest .what{color:var(--soft);}
+  @media(max-width:640px){
+    .week-strip{grid-template-columns:repeat(4,1fr);}
+  }
+
   /* ---------- DAY CARDS ---------- */
   .day{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -102,12 +127,16 @@
     font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     padding:5px 12px;border-radius:999px;color:#fff;
   }
-  .d1 .day-tag{background:var(--berry);}
-  .d2 .day-tag{background:var(--pine);}
-  .d3 .day-tag{background:var(--amber);color:#3A2A12;}
-  .d1 .day-head{border-top:5px solid var(--berry);}
-  .d2 .day-head{border-top:5px solid var(--pine);}
-  .d3 .day-head{border-top:5px solid var(--amber);}
+  .d1 .day-tag{background:var(--berry);}   .d1 .day-head{border-top:5px solid var(--berry);}
+  .d2 .day-tag{background:var(--pine);}    .d2 .day-head{border-top:5px solid var(--pine);}
+  .d3 .day-tag{background:var(--amber);color:#3A2A12;} .d3 .day-head{border-top:5px solid var(--amber);}
+  .d4 .day-tag{background:var(--indigo);}  .d4 .day-head{border-top:5px solid var(--indigo);}
+  .d5 .day-tag{background:var(--olive);}   .d5 .day-head{border-top:5px solid var(--olive);}
+  .d6 .day-tag{background:var(--soft);}    .d6 .day-head{border-top:5px dashed var(--line);}
+  .optional-chip{
+    font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--soft);border:1px dashed var(--line);border-radius:999px;padding:4px 10px;
+  }
   .progress-pill{
     font-size:13px;font-weight:700;color:var(--soft);
     background:var(--mist);border-radius:999px;padding:6px 14px;
@@ -146,7 +175,7 @@
   .ex-detail{font-size:14px;color:var(--soft);}
   .ex input:checked ~ .ex-text .ex-name{text-decoration:line-through;color:var(--soft);}
 
-  /* ---------- IN-CARD STAIRMASTER GRID ---------- */
+  /* ---------- IN-CARD CARDIO GRID ---------- */
   .sm-block{background:#FBF6EE;}
   .sm-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -164,8 +193,6 @@
     display:inline-block;margin-top:8px;font-size:12px;font-weight:700;
     background:#FDEFD9;color:#8A5A1E;border-radius:999px;padding:3px 10px;
   }
-  .sm-tip{font-size:13px;color:#8A6A3F;margin-top:12px;}
-  .sm-tip strong{color:#5C431F;}
 
   /* ---------- TIPS ---------- */
   .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
@@ -189,142 +216,261 @@
 <div class="wrap">
 
   <header>
-    <div class="eyebrow">4-Week Starter Plan · Back &amp; Glutes Focus</div>
+    <div class="eyebrow">5-Day Beginner Plan · Full Gym Edition</div>
     <h1>The Starter <span class="accent">Climb</span></h1>
-    <p class="hero-sub">A gentle, no-pressure plan built around exactly what you have right now: a StairMaster, dumbbells, and 3 days a week. Every session sculpts the two areas you care about most — a strong, toned back and rounder glutes — while the cardio quietly burns in the background.</p>
     <div class="hero-facts">
-      <div class="fact"><span>3</span> days / week</div>
-      <div class="fact"><span>30–45</span> min / session</div>
-      <div class="fact"><span>Back + Glutes</span> every week</div>
+      <div class="fact"><span>5</span> days / week (+1 optional)</div>
+      <div class="fact"><span>45–60</span> min / session</div>
+      <div class="fact"><span>Glutes 3×</span> + Back 2× weekly</div>
     </div>
   </header>
 
   <section class="section">
+    <h2>Your week at a glance</h2>
+    <p class="section-sub">A layout that spaces the leg days apart so your glutes recover between hits. Shift days around freely — just keep at least one day between the two leg days.</p>
+    <div class="week-strip">
+      <div class="wday c1"><div class="dow">Mon</div><div class="what">Quads + Glutes</div></div>
+      <div class="wday c2"><div class="dow">Tue</div><div class="what">Back</div></div>
+      <div class="wday c4"><div class="dow">Wed</div><div class="what">Shoulders + Arms</div></div>
+      <div class="wday c3"><div class="dow">Thu</div><div class="what">Hams + Glutes</div></div>
+      <div class="wday c5"><div class="dow">Fri</div><div class="what">Glutes + Back</div></div>
+      <div class="wday rest"><div class="dow">Sat</div><div class="what">Optional cardio</div></div>
+      <div class="wday rest"><div class="dow">Sun</div><div class="what">Rest</div></div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="climb">
       <h2>Your cardio climbs like a staircase</h2>
-      <p>Right now ~3 minutes on the StairMaster feels like a lot — that's totally fine. Each workout ends with short climbing rounds with rest in between (you'll find them inside each workout card below), and they grow a little each week. Bonus: the StairMaster is basically endless single-leg glute work.</p>
-      <div class="stairs" role="img" aria-label="Bar chart showing total StairMaster minutes rising from 4 in week 1 to 9 in week 4">
+      <p>Each workout ends with short climbing rounds — StairMaster or incline treadmill, your pick — with full rest in between. The rounds start small and grow a little each week. Use a slow speed (StairMaster level 3–5, or treadmill at 3.0–3.3 mph on a 5–8% incline).</p>
+      <div class="stairs" role="img" aria-label="Bar chart showing total cardio minutes rising from 4 in week 1 to 9 in week 4">
         <div class="stair"><div class="bar">4 min</div><div class="lbl">Week 1</div></div>
         <div class="stair"><div class="bar">6 min</div><div class="lbl">Week 2</div></div>
         <div class="stair"><div class="bar">8 min</div><div class="lbl">Week 3</div></div>
         <div class="stair"><div class="bar">9 min</div><div class="lbl">Week 4</div></div>
       </div>
-      <div class="climb-note"><strong>The talk test:</strong> you should be able to speak in short sentences the whole time you climb. If you can't, slow the machine down — going slower isn't failing, it's following the plan.</div>
+      <div class="climb-note"><strong>The talk test:</strong> you should be able to speak in short sentences the whole time. If you can't, slow the machine down. Each workout card below has this month's grid.</div>
     </div>
   </section>
 
   <section class="section">
-    <h2>The three workout days</h2>
-    <p class="section-sub">Do these on any 3 non-back-to-back days (e.g. Mon / Wed / Sat). Every session: warm-up → strength → StairMaster rounds → stretch, all inside one card. Tap the boxes as you go. ✓</p>
+    <h2>The five workout days</h2>
+    <p class="section-sub">Every session: warm-up → strength → cardio rounds → stretch, all in one card. First time on any machine: do one light "learning set" first to find the seat settings and the movement path, then start your working sets. Tap the boxes as you go. ✓</p>
 
-    <!-- DAY 1 -->
+    <!-- DAY 1: QUADS + GLUTES -->
     <div class="day d1">
       <div class="day-head">
-        <h3>Day 1 · Glute Shaper</h3>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <span class="day-tag">Round &amp; Lift</span>
+        <h3>Day 1 · Quads + Glutes</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="day-tag">Leg Day I</span>
           <span class="progress-pill" data-progress="d1">0 / 8 done</span>
           <button class="reset-btn" data-reset="d1" type="button">Reset</button>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Warm-up · 5 min</div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">2 min marching in place + hip circles, 10 bodyweight glute bridges, then 2 min very slow StairMaster</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">3 min easy bike or flat treadmill walk + 10 bodyweight squats + 10 glute bridges</span></span></label></div>
       </div>
       <div class="block">
         <div class="block-title">Strength · rest 60–90 sec between sets</div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Dumbbell glute bridge</span><br><span class="ex-detail">3 sets × 12 · lie on the floor, dumbbell resting on your hips, drive through your heels and squeeze hard at the top for 2 seconds — this squeeze is what builds roundness</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Dumbbell Romanian deadlift</span><br><span class="ex-detail">3 sets × 10 · soft knees, push hips back, slide dumbbells down your thighs, squeeze glutes to stand — the #1 upper-glute builder</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Goblet squat to a bench or chair</span><br><span class="ex-detail">2 sets × 8–10 · hold one dumbbell at your chest, sit back until you lightly touch the seat, stand up</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Single-leg glute bridge (bodyweight)</span><br><span class="ex-detail">2 sets × 8 per side · one foot down, other leg lifted — fixes side-to-side imbalance so both cheeks grow evenly</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Leg press</span><br><span class="ex-detail">3 sets × 10 · feet shoulder-width on the middle of the platform · lower until knees reach about 90°, press through the whole foot, don't lock the knees at the top</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Goblet squat</span><br><span class="ex-detail">3 sets × 8–10 · hold one dumbbell vertically against your chest · sit back and down until thighs are near parallel, chest tall, heels down the whole time</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Reverse lunge</span><br><span class="ex-detail">2 sets × 8 per side · step back, lower the back knee toward the floor, drive up through the front heel · bodyweight only until balance feels steady, then hold dumbbells</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Leg extension machine</span><br><span class="ex-detail">2 sets × 12 · set the seat so your knees line up with the machine's pivot point · pause 1 sec at the top, lower for 2–3 sec</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Hip abduction machine</span><br><span class="ex-detail">2 sets × 15 · lean slightly forward off the back pad to bias the upper-side glutes · press the knees out, control the return instead of letting the pads slam back</span></span></label></div>
       </div>
       <div class="block sm-block">
-        <div class="block-title">StairMaster rounds · find your week</div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Climb (slow speed, level 3–5)</span><br><span class="ex-detail">Glute bonus: push through your whole foot, not just your toes</span></span></label></div>
+        <div class="block-title">Cardio rounds · StairMaster or incline treadmill</div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Climb — find your week</span><br><span class="ex-detail">On the StairMaster, place the whole foot on each step, not just the toes</span></span></label></div>
         <div class="sm-grid">
           <div class="sm-week"><div class="wk">Week 1</div><div class="rounds">2 rounds × 2 min<br>rest 1–2 min between</div><span class="total">4 min total</span></div>
           <div class="sm-week"><div class="wk">Week 2</div><div class="rounds">3 rounds × 2 min<br>rest 1–2 min between</div><span class="total">6 min total</span></div>
           <div class="sm-week"><div class="wk">Week 3</div><div class="rounds">2 × 3 min + 1 × 2 min<br>rest 1–2 min between</div><span class="total">8 min total</span></div>
-          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>try one 4-min round if you feel good</div><span class="total">9–10 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>or one round of 4 min</div><span class="total">9–10 min total</span></div>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Cool-down</div>
-        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Figure-4 glute stretch, quad stretch, hamstring stretch — 30 sec each side</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d1"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Quad stretch, figure-4 glute stretch, calf stretch — 30 sec each side</span></span></label></div>
       </div>
     </div>
 
-    <!-- DAY 2 -->
+    <!-- DAY 2: BACK + TRICEPS -->
     <div class="day d2">
       <div class="day-head">
-        <h3>Day 2 · Back Sculptor</h3>
-        <div style="display:flex;gap:10px;align-items:center;">
+        <h3>Day 2 · Back + Triceps</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
           <span class="day-tag">Slim &amp; Tone</span>
-          <span class="progress-pill" data-progress="d2">0 / 8 done</span>
+          <span class="progress-pill" data-progress="d2">0 / 9 done</span>
           <button class="reset-btn" data-reset="d2" type="button">Reset</button>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Warm-up · 5 min</div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">Arm circles, shoulder rolls, 10 wall push-ups, then 2 min very slow StairMaster</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">3 min easy cardio + arm circles both directions + 1 very light set of lat pulldowns</span></span></label></div>
       </div>
       <div class="block">
         <div class="block-title">Strength · rest 60–90 sec between sets</div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">One-arm dumbbell row</span><br><span class="ex-detail">3 sets × 10 per side · one hand on a bench, pull the dumbbell toward your hip and squeeze your shoulder blade — the main back-toning move of the whole plan</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Bent-over reverse fly</span><br><span class="ex-detail">2 sets × 12 · light dumbbells, hinge forward, raise arms out to the sides like wings — targets the upper back and improves posture</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Dumbbell pullover</span><br><span class="ex-detail">2 sets × 10 · lie on the floor or bench, lower one dumbbell behind your head with slightly bent arms, pull back over your chest — hits the lats, which shape the sides of your back</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Seated dumbbell shoulder press</span><br><span class="ex-detail">2 sets × 8–10 · strong shoulders make the whole upper body look more sculpted</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Lat pulldown</span><br><span class="ex-detail">3 sets × 10 · grip just wider than shoulders, thighs locked under the pad · lean back slightly, pull the bar to your collarbone with elbows driving down, don't let the weight yank your arms up</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Seated cable row</span><br><span class="ex-detail">3 sets × 10 · chest tall, slight knee bend · pull the handle to your belly button and squeeze the shoulder blades together, let the arms fully straighten on the return</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">One-arm dumbbell row</span><br><span class="ex-detail">2 sets × 10 per side · one hand and knee on a bench, back flat · pull the dumbbell to your hip rather than your shoulder, no twisting</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Rear delt fly (reverse pec deck)</span><br><span class="ex-detail">2 sets × 12 · chest against the pad, handles at shoulder height, slight elbow bend · sweep the arms back level with the shoulders, light weight, no swinging</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Back extension (45° bench)</span><br><span class="ex-detail">2 sets × 12 · pad at the hip crease · hinge down, rise by squeezing the glutes, stop when the body is in a straight line — no arching past that</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Cable rope tricep pushdown</span><br><span class="ex-detail">2 sets × 12 · elbows pinned to your sides · press down until the arms straighten, control the way back up — only the forearms should move</span></span></label></div>
       </div>
       <div class="block sm-block">
-        <div class="block-title">StairMaster rounds · find your week</div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Climb (slow speed, level 3–5)</span><br><span class="ex-detail">Posture bonus: stand tall, hands resting lightly — no leaning on the rails</span></span></label></div>
+        <div class="block-title">Cardio rounds · StairMaster or incline treadmill</div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Climb — find your week</span><br><span class="ex-detail">Stand tall with hands resting lightly — leaning on the rails takes the work away</span></span></label></div>
         <div class="sm-grid">
           <div class="sm-week"><div class="wk">Week 1</div><div class="rounds">2 rounds × 2 min<br>rest 1–2 min between</div><span class="total">4 min total</span></div>
           <div class="sm-week"><div class="wk">Week 2</div><div class="rounds">3 rounds × 2 min<br>rest 1–2 min between</div><span class="total">6 min total</span></div>
           <div class="sm-week"><div class="wk">Week 3</div><div class="rounds">2 × 3 min + 1 × 2 min<br>rest 1–2 min between</div><span class="total">8 min total</span></div>
-          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>try one 4-min round if you feel good</div><span class="total">9–10 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>or one round of 4 min</div><span class="total">9–10 min total</span></div>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Cool-down</div>
-        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Chest doorway stretch, cross-body shoulder stretch, child's pose — 30 sec each</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d2"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Dead hang from the pull-up bar with feet on the floor, child's pose, overhead tricep stretch — 30 sec each</span></span></label></div>
       </div>
     </div>
 
-    <!-- DAY 3 -->
+    <!-- DAY 3: SHOULDERS + ARMS -->
+    <div class="day d4">
+      <div class="day-head">
+        <h3>Day 3 · Shoulders + Arms</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="day-tag">Sculpt &amp; Define</span>
+          <span class="progress-pill" data-progress="d4">0 / 8 done</span>
+          <button class="reset-btn" data-reset="d4" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">Warm-up · 5 min</div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">3 min easy cardio + arm circles both directions + 10 wall push-ups</span></span></label></div>
+      </div>
+      <div class="block">
+        <div class="block-title">Strength · rest 60–90 sec between sets</div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Seated dumbbell shoulder press</span><br><span class="ex-detail">3 sets × 10 · bench back support nearly upright · start with the dumbbells at ear height, press up without arching the lower back, lower with control</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Dumbbell lateral raise</span><br><span class="ex-detail">3 sets × 12 · light dumbbells, slight bend in the elbows · raise out to the sides to shoulder height, no higher, and lower for 2–3 sec — if you have to swing, the weight is too heavy</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Cable face pull</span><br><span class="ex-detail">2 sets × 12 · rope attachment set at face height · pull toward your eyes with elbows high and thumbs pointing back behind you</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Bicep curl (dumbbell or cable)</span><br><span class="ex-detail">2 sets × 12 · elbows stay at your sides · curl up without rocking the torso, take 2–3 sec on the way down</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Overhead rope tricep extension</span><br><span class="ex-detail">2 sets × 12 · face away from the cable with the rope behind your head, elbows pointing forward · extend the arms overhead, keep the elbows from flaring out</span></span></label></div>
+      </div>
+      <div class="block sm-block">
+        <div class="block-title">Cardio rounds · StairMaster or incline treadmill</div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Climb — find your week</span><br><span class="ex-detail">Legs are fresh today — a good day to attempt the week's longer round</span></span></label></div>
+        <div class="sm-grid">
+          <div class="sm-week"><div class="wk">Week 1</div><div class="rounds">2 rounds × 2 min<br>rest 1–2 min between</div><span class="total">4 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 2</div><div class="rounds">3 rounds × 2 min<br>rest 1–2 min between</div><span class="total">6 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 3</div><div class="rounds">2 × 3 min + 1 × 2 min<br>rest 1–2 min between</div><span class="total">8 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>or one round of 4 min</div><span class="total">9–10 min total</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">Cool-down</div>
+        <div class="ex"><label><input type="checkbox" data-day="d4"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Cross-body shoulder stretch, overhead tricep stretch, doorway chest stretch — 30 sec each</span></span></label></div>
+      </div>
+    </div>
+
+    <!-- DAY 4: HAMSTRINGS + GLUTES -->
     <div class="day d3">
       <div class="day-head">
-        <h3>Day 3 · Back + Glutes Combo</h3>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <span class="day-tag">Best of Both</span>
+        <h3>Day 4 · Hamstrings + Glutes</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="day-tag">Leg Day II</span>
           <span class="progress-pill" data-progress="d3">0 / 8 done</span>
           <button class="reset-btn" data-reset="d3" type="button">Reset</button>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Warm-up · 5 min</div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">Marching in place, hip circles, 10 bodyweight squats to a chair, then 2 min slow StairMaster</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">3 min easy bike or flat walk + hip circles + 10 bodyweight glute bridges with a 2-sec squeeze</span></span></label></div>
       </div>
       <div class="block">
         <div class="block-title">Strength · rest 60–90 sec between sets</div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Dumbbell sumo squat</span><br><span class="ex-detail">3 sets × 10 · wide stance, toes slightly out, hold one dumbbell with both hands — the wide stance shifts the work onto your glutes</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Two-arm bent-over row</span><br><span class="ex-detail">3 sets × 10 · hinge forward with a flat back, row both dumbbells to your hips, squeeze your shoulder blades together</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Glute bridge hold + squeeze</span><br><span class="ex-detail">2 sets × 20-second hold · at the top of a bridge, hold and squeeze as hard as you can — finishes the glutes off</span></span></label></div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Bird dog</span><br><span class="ex-detail">2 sets × 8 per side · on hands and knees, extend opposite arm and leg slowly — strengthens the lower back and glutes together</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Hip thrust (Smith machine, barbell, or machine)</span><br><span class="ex-detail">3 sets × 10 · shoulder blades on a bench, bar padded across the hips, feet set so the shins are vertical at the top · drive the hips up to a flat line, chin tucked, 2-sec squeeze at the top · start with just the bar — it's plenty at first</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Romanian deadlift (dumbbells)</span><br><span class="ex-detail">3 sets × 10 · soft knees, back flat · push the hips straight back and slide the dumbbells down the thighs until you feel the hamstrings stretch, then squeeze the glutes to stand</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Lying or seated leg curl machine</span><br><span class="ex-detail">3 sets × 12 · pad just above the heels · curl toward the glutes, take 2–3 sec lowering back</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Cable glute kickback</span><br><span class="ex-detail">2 sets × 12 per side · ankle strap on the low pulley, hands on the frame, slight forward lean · kick back and slightly up without arching the lower back, pause 1 sec at the top</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Hip abduction machine</span><br><span class="ex-detail">2 sets × 15 · same setup as Day 1 — slight forward lean, press out, slow return</span></span></label></div>
       </div>
       <div class="block sm-block">
-        <div class="block-title">StairMaster rounds · find your week</div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Climb (slow speed, level 3–5)</span><br><span class="ex-detail">Feeling brave? Every 10th step, skip a step for an extra glute squeeze</span></span></label></div>
+        <div class="block-title">Cardio rounds · StairMaster or incline treadmill</div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Climb — find your week</span><br><span class="ex-detail">Press through the whole foot on every step to keep the glutes involved</span></span></label></div>
         <div class="sm-grid">
           <div class="sm-week"><div class="wk">Week 1</div><div class="rounds">2 rounds × 2 min<br>rest 1–2 min between</div><span class="total">4 min total</span></div>
           <div class="sm-week"><div class="wk">Week 2</div><div class="rounds">3 rounds × 2 min<br>rest 1–2 min between</div><span class="total">6 min total</span></div>
           <div class="sm-week"><div class="wk">Week 3</div><div class="rounds">2 × 3 min + 1 × 2 min<br>rest 1–2 min between</div><span class="total">8 min total</span></div>
-          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>try one 4-min round if you feel good</div><span class="total">9–10 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>or one round of 4 min</div><span class="total">9–10 min total</span></div>
         </div>
       </div>
       <div class="block">
         <div class="block-title">Cool-down</div>
-        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Child's pose, figure-4 glute stretch, gentle spinal twist — 30 sec each</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d3"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Standing hamstring stretch, figure-4 glute stretch, hip flexor lunge stretch — 30 sec each side</span></span></label></div>
+      </div>
+    </div>
+
+    <!-- DAY 5: GLUTES + BACK -->
+    <div class="day d5">
+      <div class="day-head">
+        <h3>Day 5 · Glutes + Back</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="day-tag">Priority Combo</span>
+          <span class="progress-pill" data-progress="d5">0 / 8 done</span>
+          <button class="reset-btn" data-reset="d5" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">Warm-up · 5 min</div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Easy movement</span><br><span class="ex-detail">3 min easy cardio + 10 bodyweight squats + 10 glute bridges + arm circles</span></span></label></div>
+      </div>
+      <div class="block">
+        <div class="block-title">Strength · rest 60–90 sec between sets</div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Dumbbell sumo squat</span><br><span class="ex-detail">3 sets × 10 · wide stance, toes angled out, one dumbbell hanging between the legs · knees track over the toes, chest tall, squeeze the glutes to stand</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Lat pulldown, close neutral grip</span><br><span class="ex-detail">3 sets × 10 · V-handle with palms facing each other · pull to the top of the chest with a slight lean back, control the way up</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Chest-supported machine row</span><br><span class="ex-detail">2 sets × 10 · set the chest pad so the arms fully extend at the bottom · pull the handles to the ribs, squeeze the shoulder blades</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Back extension with glute squeeze</span><br><span class="ex-detail">2 sets × 12 · same setup as Day 2 · think "squeeze up with the glutes," not "lift with the lower back," and stop at a straight line</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Dead bug</span><br><span class="ex-detail">2 sets × 8 per side · lower back pressed into the floor the whole time · lower the opposite arm and leg slowly, exhale as they extend</span></span></label></div>
+      </div>
+      <div class="block sm-block">
+        <div class="block-title">Cardio rounds · StairMaster or incline treadmill</div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Climb — find your week</span><br><span class="ex-detail">Either machine works — pick whichever your legs have left today</span></span></label></div>
+        <div class="sm-grid">
+          <div class="sm-week"><div class="wk">Week 1</div><div class="rounds">2 rounds × 2 min<br>rest 1–2 min between</div><span class="total">4 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 2</div><div class="rounds">3 rounds × 2 min<br>rest 1–2 min between</div><span class="total">6 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 3</div><div class="rounds">2 × 3 min + 1 × 2 min<br>rest 1–2 min between</div><span class="total">8 min total</span></div>
+          <div class="sm-week"><div class="wk">Week 4</div><div class="rounds">3 rounds × 3 min<br>or one round of 4 min</div><span class="total">9–10 min total</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">Cool-down</div>
+        <div class="ex"><label><input type="checkbox" data-day="d5"><span class="ex-text"><span class="ex-name">Stretch · 3–5 min</span><br><span class="ex-detail">Child's pose, figure-4 glute stretch, gentle spinal twist — 30 sec each</span></span></label></div>
+      </div>
+    </div>
+
+    <!-- DAY 6: OPTIONAL -->
+    <div class="day d6">
+      <div class="day-head">
+        <h3>Day 6 · Cardio + Core</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <span class="optional-chip">100% Optional</span>
+          <span class="progress-pill" data-progress="d6">0 / 5 done</span>
+          <button class="reset-btn" data-reset="d6" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-title">Only if you want it</div>
+        <div class="ex"><label><input type="checkbox" data-day="d6"><span class="ex-text"><span class="ex-name">20–30 min easy cardio, your choice</span><br><span class="ex-detail">Incline treadmill walk, bike, StairMaster, or an outdoor walk — conversation pace throughout</span></span></label></div>
+      </div>
+      <div class="block">
+        <div class="block-title">Core circuit · 2 rounds, rest as needed</div>
+        <div class="ex"><label><input type="checkbox" data-day="d6"><span class="ex-text"><span class="ex-name">Plank</span><br><span class="ex-detail">20–30 sec · from the knees is fine — straight line from head to knees, no sagging hips</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d6"><span class="ex-text"><span class="ex-name">Dead bug</span><br><span class="ex-detail">8 per side · lower back stays pressed into the floor</span></span></label></div>
+        <div class="ex"><label><input type="checkbox" data-day="d6"><span class="ex-text"><span class="ex-name">Bird dog</span><br><span class="ex-detail">8 per side · extend the opposite arm and leg, pause 2 sec, keep the hips level</span></span></label></div>
+      </div>
+      <div class="block">
+        <div class="block-title">Cool-down</div>
+        <div class="ex"><label><input type="checkbox" data-day="d6"><span class="ex-text"><span class="ex-name">Stretch anything that's tight</span><br><span class="ex-detail">5 min, whatever the week asked of you</span></span></label></div>
       </div>
     </div>
   </section>
@@ -332,24 +478,24 @@
   <section class="section">
     <h2>Things that make this work</h2>
     <div class="tips">
-      <div class="tip"><h4>🍑 How glutes get rounder</h4><p>Square glutes round out from two things: building the muscle (your bridges, RDLs, and sumo squats) and losing a little fat over time. Squeeze hard at the top of every rep — lazy reps build nothing.</p></div>
-      <div class="tip"><h4>💪 How back rolls fade</h4><p>Honest truth: you can't burn fat from one spot. The rolls fade as overall weight comes down, while your rows and flys build the toned, defined shape that shows up underneath. Both halves of this plan are working on it.</p></div>
-      <div class="tip"><h4>🏋️ Pick weights that feel easy-ish</h4><p>You should finish each set feeling like you had 2–3 reps left in you. When that feels true two workouts in a row, add reps first, then weight.</p></div>
-      <div class="tip"><h4>🍽️ Food does the heavy lifting</h4><p>For losing ~25 lbs, what you eat matters more than any workout. Start simple: protein at every meal, water instead of sugary drinks. No crash diets — slow is what sticks.</p></div>
-      <div class="tip"><h4>📅 Consistency beats intensity</h4><p>9–12 workouts this month is the entire goal. A "bad" workout where you showed up counts as a full win.</p></div>
-      <div class="tip"><h4>📈 Track wins that aren't the scale</h4><p>More StairMaster minutes, heavier dumbbells, jeans fitting differently, better posture in photos — these show up before the scale moves.</p></div>
+      <div class="tip"><h4>🤖 Machines are your friend</h4><p>They guide the movement so you can work the muscle safely while learning. Adjust the seat so the machine's pivot lines up with the joint that's moving, and do a light first set to find the groove.</p></div>
+      <div class="tip"><h4>🍑 Why glutes get hit 3× a week</h4><p>Hip thrusts build the main mass, abductions and kickbacks round the sides and lower shelf, RDLs and sumos hit the upper glutes. Different angles, three days, with recovery time between — that's the rounding recipe.</p></div>
+      <div class="tip"><h4>🏋️ Starting weights</h4><p>Week 1, pick weights that feel almost too easy — finish every set with 2–3 reps left in the tank. Each week after, add a rep or the smallest jump in weight to something. The empty barbell is 45 lbs; that's a real starting weight for hip thrusts (grab a bar pad, usually kept near the benches).</p></div>
+      <div class="tip"><h4>😮‍💨 Five days is a big start</h4><p>If a week gets busy, dropping to 4 days keeps all your progress — skip Day 5, since its muscles were already trained twice that week. Sore is normal the first couple weeks; sharp or joint pain means stop that exercise and rest.</p></div>
+      <div class="tip"><h4>📅 Consistency beats intensity</h4><p>Showing up is the entire goal of month one. A short workout where you cut sets still counts as a full win over skipping.</p></div>
+      <div class="tip"><h4>👟 Steps still matter</h4><p>Gym days don't replace the 10k steps — they stack with them. The steps drive the fat loss; the lifting decides what shape shows up underneath.</p></div>
     </div>
   </section>
 
   <footer>
-    Made with love by your best friend 💚 · Next month, full gym — hip thrusts, cable rows, and lat pulldowns are waiting, and you'll walk in with 4 weeks of momentum. <br><br>
+    Made with love by your best friend 💚 <br><br>
     This is a general beginner plan, not medical advice. If you have any health conditions, check in with a doctor before starting.
   </footer>
 </div>
 
 <script>
   // Per-day progress counters with saved progress (persists between visits)
-  const STORE_KEY = 'starterClimbChecks';
+  const STORE_KEY = 'starterClimbGymChecks';
   const days = {};
 
   function loadState(){
